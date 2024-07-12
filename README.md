@@ -134,7 +134,7 @@ This repository contains an implementation of a Recurrent Spiking Neural Network
     - Untrain the input layer and recurrent layer
   
 3. **High Firing rate**:
-    - Increasing the weight of the firing rate in the `CustomLoss` class (default setting: 1)
+    - Increasing the weight of the firing rate in the `CustomLoss` class (default setting: $1$)
 
 ## Acknowledgments
 
