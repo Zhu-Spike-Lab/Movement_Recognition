@@ -120,6 +120,8 @@ This repository contains an implementation of a Recurrent Spiking Neural Network
   
 
 Author: Huaze Liu 
+
 Date: 2024.7.12
+
 Contact: hualiu@g.hmc.edu | huazeliu0521@gmail.com | (909) 376-8290
 
