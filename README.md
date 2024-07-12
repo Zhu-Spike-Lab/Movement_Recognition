@@ -1,6 +1,6 @@
 # Comparative Analysis of Evolutionary Algorithm (EA) and BackPropagation (BP) in Moving Digit Pattern Recognition
 
-This repository contains an implementation of a Recurrent Spiking Neural Network (RSNN) designed to classify directional movements using an evolutionary algorithm & backpropagation through time for optimization.
+This repository contains an implementation of a Recurrent Spiking Neural Network (RSNN) designed to classify directional movements using an evolutionary algorithm (EA) & backpropagation through time (BPTT) for optimization for comparative analysis.
 
 ## Table of Contents
 
@@ -12,6 +12,7 @@ This repository contains an implementation of a Recurrent Spiking Neural Network
 - [Analysis and Plotting](#analysis-and-plotting)
 - [Future Experiments](#future-experiments)
 - [Common Issues and Solutions](#common-issues-and-solutions)
+- [Acknowledgments](#acknowledgments)
 
 
 ## Setup Environment
@@ -35,8 +36,8 @@ This repository contains an implementation of a Recurrent Spiking Neural Network
 
 ## Access Training Data
 
-1. **Data File**: The training data is provided in the `movement_sequences.csv` file.
-2. **Load Data**: The data can be loaded using pandas.
+1. **Data File**: The training data is provided in the `movement_sequences.csv` file
+3. **Load Data**: The data can be loaded using pandas.
     ```python
     import pandas as pd
     df = pd.read_csv('movement_sequences.csv')
@@ -76,6 +77,8 @@ This repository contains an implementation of a Recurrent Spiking Neural Network
 ### `train_moving_digit_evol.ipynb`
 
 - **Purpose**: Implements the BackProp Through Time to optimize the RSNN model.
+
+### More details including initialization, functionality, parameters are shown in the notebook markdown.
  
 
 ## Analysis and Plotting
@@ -102,24 +105,46 @@ This repository contains an implementation of a Recurrent Spiking Neural Network
         plt.title("Evolution of Average Fitness")
         plt.show()
     ```
+- **Plot Loss Change**: Track the BPTT loss change over training.
+    ```python
+    def plot_loss_change(num_epochs, epoch_losses):
+        plt.figure(figsize=(10, 6))
+        plt.plot(range(1, num_epochs + 1), epoch_losses, marker='o')
+        plt.title('Loss Change Over Epochs')
+        plt.xlabel('Epochs')
+        plt.ylabel('Loss')
+        plt.grid(True)
+        plt.show()
+    ```
 
 ## Future Experiments
 
 1. **Parameter Tuning**: Experiment with different values for `beta`, `pe_e`, and mutation rates to improve model performance.
 2. **Additional Metrics**: Incorporate more metrics like criticality and synchrony into the fitness function.
 3. **Extended Data**: Use larger and more varied datasets to test the model's robustness.
+4. **More Comparative Analysis**: Analyze `surrogate gradient learning`'s performance and the corresponding neuron dynamic change.
 
 ## Common Issues and Solutions
 
 1. **High Initial Loss**:
-    - Ensure data normalization.
+    - Ensure data normalization (in this project, we use `kaiming_initialization`).
     - Verify model initialization.
 
 2. **Vanishing/Exploding Gradients**:
     - Untrain the input layer and recurrent layer
   
+3. **High Firing rate**:
+    - Increasing the weight of the firing rate in the `CustomLoss` class (default setting: 1)
+
+## Acknowledgments
+
+This project idea was proposed by my mentor Prof. Yuqing Zhu. I appreciate her guidance and support and my partners' collabration throughout the development of this project.
+
+
+  
 
 Author: Huaze Liu 
+
 
 Date: 2024.7.12
 
